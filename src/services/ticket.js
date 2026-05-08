@@ -165,8 +165,6 @@ export async function createTicket(guild, member, categoryId, reason = 'No reaso
       description: `${member.toString()}, thanks for creating a ticket!\n\n**Reason:** ${reason}\n**Priority:** ${priorityInfo.emoji} ${priorityInfo.label}`,
       color: priorityInfo.color,
       fields: [
-        { name: 'Status', value: '🟢 Open', inline: true },
-        { name: 'Claimed By', value: 'Not claimed', inline: true },
         { name: 'Created', value: `<t:${Math.floor(Date.now() / 1000)}:R>`, inline: true },
       ],
     });
