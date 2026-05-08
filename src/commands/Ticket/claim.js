@@ -26,7 +26,7 @@ export default {
                     embeds: [
                         errorEmbed(
                             "Not a Ticket Channel",
-                            "This command can only be used in a valid ticket channel.",
+                            "This command can only be used in a ticket channel.",
                         ),
                     ],
                 });
@@ -36,7 +36,6 @@ export default {
                 return await InteractionHelper.safeEditReply(interaction, {
                     embeds: [
                         errorEmbed(
-                            "Permission Denied",
                             "You need the `Manage Channels` permission or the configured `Ticket Staff Role` to claim tickets.",
                         ),
                     ],
