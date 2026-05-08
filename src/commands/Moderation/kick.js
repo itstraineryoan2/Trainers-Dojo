@@ -28,7 +28,7 @@ export default {
         throw new TitanBotError(
           "User lacks permission",
           ErrorTypes.PERMISSION,
-          "You do not have permission to kick members."
+          "You do not have permission to  members."
         );
       }
 
@@ -39,18 +39,18 @@ export default {
       
       if (targetUser.id === interaction.user.id) {
         throw new TitanBotError(
-          "Cannot kick self",
+          "Cannot  self",
           ErrorTypes.VALIDATION,
-          "You cannot kick yourself."
+          "You cannot  yourself."
         );
       }
 
       
       if (targetUser.id === client.user.id) {
         throw new TitanBotError(
-          "Cannot kick bot",
+          "Cannot  bot",
           ErrorTypes.VALIDATION,
-          "You cannot kick the bot."
+          "You cannot  the bot."
         );
       }
 
@@ -67,30 +67,30 @@ export default {
       
       if (interaction.member.roles.highest.position <= member.roles.highest.position) {
         throw new TitanBotError(
-          "Cannot kick user",
+          "Cannot  user",
           ErrorTypes.PERMISSION,
-          "You cannot kick a user with an equal or higher role than you."
+          "You cannot  a user with an equal or higher role than you."
         );
       }
 
       
-      if (!member.kickable) {
+      if (!member.able) {
         throw new TitanBotError(
-          "Bot cannot kick",
+          "Bot cannot ",
           ErrorTypes.PERMISSION,
-          "I cannot kick this user. Please check my role position relative to the target user."
+          "I cannot  this user. Please check my role position relative to the target user."
         );
       }
 
       
-      await member.kick(reason);
+      await member.(reason);
 
       
       const caseId = await logModerationAction({
         client,
         guild: interaction.guild,
         event: {
-          action: "Member Kicked",
+          action: "Member ed",
           target: `${targetUser.tag} (${targetUser.id})`,
           executor: `${interaction.user.tag} (${interaction.user.id})`,
           reason,
@@ -105,7 +105,7 @@ export default {
       await InteractionHelper.universalReply(interaction, {
         embeds: [
           successEmbed(
-            `👢 **Kicked** ${targetUser.tag}`,
+            `**Kicked** ${targetUser.tag}`,
             `**Reason:** ${reason}\n**Case ID:** #${caseId}`,
           ),
         ],
