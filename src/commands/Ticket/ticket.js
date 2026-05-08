@@ -153,7 +153,7 @@ const panelMessage = interaction.options.getString("panel_message") || "Click th
 const dmOnClose = interaction.options.getBoolean("dm_on_close") !== false;
 
             const setupEmbed = createEmbed({ 
-                title: "🎫 Support Tickets", 
+                title: "Tickets", 
 description: panelMessage,
                 color: getColor('info')
             });
