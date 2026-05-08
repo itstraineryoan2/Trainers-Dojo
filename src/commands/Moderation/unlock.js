@@ -105,7 +105,7 @@ export default {
                 embeds: [
                     successEmbed(
                         `🔓 **Channel Unlocked**`,
-                        `${channel} is now unlocked. You may speak now.`,
+                        `${channel} is now unlocked.`,
                     ),
                 ],
             });
