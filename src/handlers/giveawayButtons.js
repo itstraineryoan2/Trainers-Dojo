@@ -61,7 +61,7 @@ export const giveawayJoinHandler = {
                     return interaction.reply({
                         embeds: [
                             errorEmbed(
-                                'Giveaway Ended',
+                                'Entries are now closed and no further changes can be made.',
                                 'This giveaway has already ended.'
                             )
                         ],
@@ -77,8 +77,8 @@ export const giveawayJoinHandler = {
                     return interaction.reply({
                         embeds: [
                             errorEmbed(
-                                'Already Entered',
-                                'You have already entered this giveaway! 🎉'
+                                'Your entry is locked in and can’t be removed.',
+                                'You have already entered this giveaway!'
                             )
                         ],
                         flags: MessageFlags.Ephemeral
@@ -105,8 +105,8 @@ export const giveawayJoinHandler = {
                 await interaction.reply({
                     embeds: [
                         successEmbed(
-                            'Success! You have entered the giveaway! 🎉',
-                            `Good luck! There are now ${participants.length} entry/entries.`
+                            'You have entered the giveaway! 🎉',
+                            `Good luck! There are now ${participants.length} entries.`
                         )
                     ],
                     flags: MessageFlags.Ephemeral
@@ -143,7 +143,7 @@ export const giveawayEndHandler = {
             
             if (!interaction.member.permissions.has(PermissionFlagsBits.ManageGuild)) {
                 return interaction.reply({
-                    embeds: [errorEmbed('Permission Denied', "You need the 'Manage Server' permission to end a giveaway.")],
+                    embeds: [errorEmbed('Permission Denied', "Insufficient Permissions")],
                     flags: MessageFlags.Ephemeral
                 });
             }
@@ -153,7 +153,7 @@ export const giveawayEndHandler = {
 
             if (!giveaway) {
                 throw new TitanBotError(
-                    'Giveaway not found in database',
+                    'Giveaway not found.',
                     ErrorTypes.VALIDATION,
                     'This giveaway is no longer active.',
                     { messageId: interaction.message.id, guildId: interaction.guildId }
