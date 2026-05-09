@@ -179,10 +179,10 @@ export function createGiveawayEmbed(giveaway, status, winners = []) {
         
         const embed = new EmbedBuilder()
             .setTitle(`${statusEmoji} ${giveaway.prize}`)
-            .setDescription('React with the button below to enter!')
+            .setDescription('Click the emoji down below to enter!')
             .setColor(color)
             .addFields(
-                { name: '👤 Hosted by', value: `<@${giveaway.hostId}>`, inline: true },
+                { name: 'Hosted by', value: `<@${giveaway.hostId}>`, inline: true },
                 { name: '🏆 Winners', value: giveaway.winnerCount.toString(), inline: true },
                 { name: '👥 Entries', value: giveaway.participants?.length?.toString() || '0', inline: true }
             );
@@ -191,10 +191,10 @@ export function createGiveawayEmbed(giveaway, status, winners = []) {
             const winnerDisplay = winners.length > 0 
                 ? winners.map(id => `<@${id}>`).join(', ')
                 : 'No valid entries';
-            embed.addFields({ name: '🎯 Winners', value: winnerDisplay, inline: false });
+            embed.addFields({ name: 'Winners', value: winnerDisplay, inline: false });
         } else {
             const endTime = giveaway.endsAt || giveaway.endTime;
-            embed.addFields({ name: '⏰ Ends', value: `<t:${Math.floor(endTime / 1000)}:R>`, inline: false });
+            embed.addFields({ name: 'Ends in', value: `<t:${Math.floor(endTime / 1000)}:R>`, inline: false });
         }
 
         embed.setTimestamp();
@@ -224,12 +224,12 @@ export function createGiveawayButtons(ended = false) {
             row.addComponents(
                 new ButtonBuilder()
                     .setCustomId('giveaway_reroll')
-                    .setLabel('🎲 Reroll')
+                    .setLabel('Reroll')
                     .setStyle(ButtonStyle.Secondary)
                     .setDisabled(false),
                 new ButtonBuilder()
                     .setCustomId('giveaway_view')
-                    .setLabel('👁️ View Winners')
+                    .setLabel('View Winners')
                     .setStyle(ButtonStyle.Primary)
                     .setDisabled(false)
             );
@@ -242,7 +242,7 @@ export function createGiveawayButtons(ended = false) {
                     .setDisabled(false),
                 new ButtonBuilder()
                     .setCustomId('giveaway_end')
-                    .setLabel('🛑 End')
+                    .setLabel('End')
                     .setStyle(ButtonStyle.Danger)
                     .setDisabled(false)
             );
