@@ -179,7 +179,7 @@ export default {
                 embeds: [
                     successEmbed(
                         `Giveaway Started! 🎉`,
-                        `A new giveaway for **${prizeName}** has been started in ${targetChannel} and will end in **${durationString}**.`,
+                        `You made a new giveaway for **${prizeName}** that will end in **${durationString}**.`,
                     ),
                 ],
                 flags: MessageFlags.Ephemeral,
